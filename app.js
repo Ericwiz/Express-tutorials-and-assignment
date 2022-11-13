@@ -2,7 +2,8 @@ const http = require('http');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require("body-parser");
-const dishRoute = require('./routes/dishRoute')
+const dishesRoute = require('./routes/dishRoute')
+const promosRoute = require('./routes/promoRoute')
 
 const hostname = "localhost";
 const port = 8080
@@ -11,7 +12,8 @@ const app = express()
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use('/dishes', dishRoute)
+app.use('/dishes', dishesRoute);
+app.use('/promos', promosRoute)
 app.use(express.static('public'));
 
 
